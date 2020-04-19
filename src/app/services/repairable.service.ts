@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Client} from '../model/Client';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
+import {Repairable} from '../model/Repairable';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,18 +13,13 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class ClientService {
-  apiClientUrl = environment.apiUrl + '/clients';
+export class RepairableService {
+  apiRepairableUrl = environment.apiUrl + '/repairables';
 
   constructor(private http: HttpClient) {
   }
 
-  addClient(client: Client): Observable<Client> {
-    return this.http.post<Client>(this.apiClientUrl, client, httpOptions);
-  }
-
-  getClients(): Observable<Client[]> {
-    console.log(this.apiClientUrl);
-    return this.http.get<Client[]>(this.apiClientUrl);
+  addRepairable(repairable: Repairable): Observable<Repairable> {
+    return this.http.post<Repairable>(this.apiRepairableUrl, repairable, httpOptions);
   }
 }
