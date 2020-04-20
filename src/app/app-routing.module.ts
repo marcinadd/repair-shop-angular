@@ -3,12 +3,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {IndexComponent} from './components/index/index.component';
 import {AddClientComponent} from './components/client/add-client/add-client.component';
 import {AddRepairableComponent} from './components/repairable/add-repairable/add-repairable.component';
+import {AddFormComponent} from './components/form/add-form/add-form.component';
 
 
 const routes: Routes = [
   {path: '', component: IndexComponent},
   {path: 'client/add', component: AddClientComponent},
   {path: 'repairable/add', component: AddRepairableComponent},
+  {path: 'form/add', component: AddFormComponent},
 ];
 
 @NgModule({

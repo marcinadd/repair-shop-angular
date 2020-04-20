@@ -1,0 +1,31 @@
+<form (ngSubmit)="onSubmit(formCreate.value)" [formGroup]="formCreate" class="form">
+
+  <div class="form-group">
+    <label for="ownerId">
+      <select (change)="onSelect($event.target.value)" formControlName="clientId">
+        <option *ngFor="let client of clients" [value]="client.id" id="ownerId">
+          {{client.lastName}} {{client.firstName}} {{client.phone}}
+        </option>
+      </select>
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label for="repairableId">
+      <select formControlName="repairableId">
+        <option *ngFor="let repairable of repairables" [value]="repairable.id" id="repairableId">
+          {{repairable.name}} {{repairable.serial}}
+        </option>
+      </select>
+    </label>
+  </div>
+
+
+  <div class="form-group">
+    <label for="description">
+      Description
+    </label>
+    <input class="form-control" formControlName="description" id="description" type="text">
+  </div>
+  <button class="btn btn-success" type="submit">Save</button>
+</form>

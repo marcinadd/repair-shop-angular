@@ -22,4 +22,8 @@ export class RepairableService {
   addRepairable(repairable: Repairable): Observable<Repairable> {
     return this.http.post<Repairable>(this.apiRepairableUrl, repairable, httpOptions);
   }
+
+  getRepairablesByOwnerId(ownerId: string): Observable<Repairable[]> {
+    return this.http.get<Repairable[]>(`${this.apiRepairableUrl}?ownerId=${ownerId}`);
+  }
 }

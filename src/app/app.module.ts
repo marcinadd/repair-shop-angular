@@ -9,6 +9,7 @@ import {AddClientComponent} from './components/client/add-client/add-client.comp
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AddRepairableComponent} from './components/repairable/add-repairable/add-repairable.component';
+import {AddFormComponent} from './components/form/add-form/add-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {AddRepairableComponent} from './components/repairable/add-repairable/add
     HeaderComponent,
     IndexComponent,
     AddClientComponent,
-    AddRepairableComponent
+    AddRepairableComponent,
+    AddFormComponent
   ],
   imports: [
     BrowserModule,
