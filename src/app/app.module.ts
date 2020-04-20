@@ -10,6 +10,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AddRepairableComponent} from './components/repairable/add-repairable/add-repairable.component';
 import {AddFormComponent} from './components/form/add-form/add-form.component';
+import {FormsComponent} from './components/form/forms/forms.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {AddFormComponent} from './components/form/add-form/add-form.component';
     IndexComponent,
     AddClientComponent,
     AddRepairableComponent,
-    AddFormComponent
+    AddFormComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,

@@ -16,4 +16,10 @@ export class FormService {
   addForm(form: Form): Observable<Form> {
     return this.http.post<Form>(this.apiFormUrl, form, environment.httpOptions);
   }
+
+  getForms(): Observable<Form[]> {
+    return this.http.get<Form[]>(this.apiFormUrl);
+  }
+
+
 }

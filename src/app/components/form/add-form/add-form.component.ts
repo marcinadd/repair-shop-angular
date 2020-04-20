@@ -46,6 +46,4 @@ export class AddFormComponent implements OnInit {
       this.repairables = repairables;
     });
   }
-
-
 }
