@@ -18,7 +18,7 @@ export class ClientsComponent implements OnInit {
   }
 
   onFilterChanged(lastNameStartsWith) {
-    this.clientService.getClientsByLastNameStartsWith(lastNameStartsWith).subscribe(clients => {
+    this.clientService.findClientsByLastNameStartsWith(lastNameStartsWith).subscribe(clients => {
       this.clients = clients;
     });
   }

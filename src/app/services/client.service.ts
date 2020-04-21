@@ -28,7 +28,16 @@ export class ClientService {
     return this.http.get<Client[]>(this.apiClientUrl);
   }
 
-  getClientsByLastNameStartsWith(lastNameStartsWith): Observable<Client[]> {
+  findClientsByLastNameStartsWith(lastNameStartsWith): Observable<Client[]> {
     return this.http.get<Client[]>(`${this.apiClientUrl}?lastNameStartsWith=${lastNameStartsWith}`);
   }
+
+  findClientById(clientId): Observable<Client> {
+    return this.http.get<Client>(this.apiClientUrl + '/' + clientId);
+  }
+
+  updateClient(client: Client): Observable<Client> {
+    return this.http.patch<Client>(this.apiClientUrl + '/' + client.id, client);
+  }
+
 }

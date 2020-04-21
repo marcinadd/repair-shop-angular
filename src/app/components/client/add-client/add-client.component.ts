@@ -24,7 +24,6 @@ export class AddClientComponent implements OnInit {
 
   onSubmit(clientData) {
     this.clientService.addClient(clientData).subscribe(client => {
-      console.log(client);
     });
   }
 }

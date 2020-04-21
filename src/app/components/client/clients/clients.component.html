@@ -9,16 +9,23 @@
     <th>Last name</th>
     <th>Phone</th>
     <th>Mail</th>
+    <th>Edit</th>
     </thead>
     <div *ngIf="clients.length == 0">
       No results
     </div>
-    <tr #elseBlock *ngFor="let client of clients">
+    <tr *ngFor="let client of clients">
       <td>{{client.firstName}}</td>
       <td>{{client.lastName}}</td>
       <td>{{client.phone}}</td>
       <td>{{client.email}}</td>
+      <td>
+        <a [routerLink]="['/clients',client.id]">
+          <button class="btn btn-info">
+            Edit
+          </button>
+        </a>
+      </td>
     </tr>
-
   </table>
 </div>
