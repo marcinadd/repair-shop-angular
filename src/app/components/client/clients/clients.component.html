@@ -1,0 +1,24 @@
+<div class="container">
+  <input (input)="onFilterChanged($event.target.value)" class="form-control" id="lastNameInput"
+         placeholder="Enter last name"
+         type="text">
+  <h2>Results:</h2>
+  <table class="table table-bordered">
+    <thead>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Phone</th>
+    <th>Mail</th>
+    </thead>
+    <div *ngIf="clients.length == 0">
+      No results
+    </div>
+    <tr #elseBlock *ngFor="let client of clients">
+      <td>{{client.firstName}}</td>
+      <td>{{client.lastName}}</td>
+      <td>{{client.phone}}</td>
+      <td>{{client.email}}</td>
+    </tr>
+
+  </table>
+</div>

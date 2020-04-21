@@ -27,4 +27,8 @@ export class ClientService {
     console.log(this.apiClientUrl);
     return this.http.get<Client[]>(this.apiClientUrl);
   }
+
+  getClientsByLastNameStartsWith(lastNameStartsWith): Observable<Client[]> {
+    return this.http.get<Client[]>(`${this.apiClientUrl}?lastNameStartsWith=${lastNameStartsWith}`);
+  }
 }

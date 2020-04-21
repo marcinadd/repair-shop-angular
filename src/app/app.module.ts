@@ -11,6 +11,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AddRepairableComponent} from './components/repairable/add-repairable/add-repairable.component';
 import {AddFormComponent} from './components/form/add-form/add-form.component';
 import {FormsComponent} from './components/form/forms/forms.component';
+import {ClientsComponent} from './components/client/clients/clients.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FormsComponent} from './components/form/forms/forms.component';
     AddClientComponent,
     AddRepairableComponent,
     AddFormComponent,
-    FormsComponent
+    FormsComponent,
+    ClientsComponent
   ],
   imports: [
     BrowserModule,
