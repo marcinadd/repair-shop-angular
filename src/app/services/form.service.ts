@@ -21,5 +21,7 @@ export class FormService {
     return this.http.get<Form[]>(this.apiFormUrl);
   }
 
-
+  getFormById(formId: string): Observable<Form> {
+    return this.http.get<Form>(this.apiFormUrl + '/' + formId);
+  }
 }

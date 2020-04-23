@@ -4,11 +4,19 @@
   <th>Serial/Number</th>
   <th>Description</th>
   <th>Status</th>
+  <th>Manage</th>
   </thead>
   <tr *ngFor="let form of forms">
     <td>{{form.repairable.name}}</td>
     <td>{{form.repairable.serial}}</td>
     <td>{{form.description}}</td>
     <td>{{form.status}}</td>
+    <td>
+      <a [routerLink]="['/forms',form.id]">
+        <button class="btn btn-warning">
+          Manage
+        </button>
+      </a>
+    </td>
   </tr>
 </table>

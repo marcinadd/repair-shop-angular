@@ -7,6 +7,8 @@ import {AddFormComponent} from './components/form/add-form/add-form.component';
 import {FormsComponent} from './components/form/forms/forms.component';
 import {ClientsComponent} from './components/client/clients/clients.component';
 import {EditClientComponent} from './components/client/edit-client/edit-client.component';
+import {ManageFormComponent} from './components/form/manage-form/manage-form.component';
+import {AddServiceComponent} from './components/item/buyable/service/add-service/add-service.component';
 
 
 const routes: Routes = [
@@ -17,6 +19,8 @@ const routes: Routes = [
   {path: 'repairables/add', component: AddRepairableComponent},
   {path: 'forms/add', component: AddFormComponent},
   {path: 'forms', component: FormsComponent},
+  {path: 'forms/:id', component: ManageFormComponent},
+  {path: 'services/add', component: AddServiceComponent},
 ];
 
 @NgModule({

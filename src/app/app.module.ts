@@ -13,6 +13,10 @@ import {AddFormComponent} from './components/form/add-form/add-form.component';
 import {FormsComponent} from './components/form/forms/forms.component';
 import {ClientsComponent} from './components/client/clients/clients.component';
 import {EditClientComponent} from './components/client/edit-client/edit-client.component';
+import {ManageFormComponent} from './components/form/manage-form/manage-form.component';
+import {AddServiceComponent} from './components/item/buyable/service/add-service/add-service.component';
+import {AddItemComponent} from './components/item/add-item/add-item.component';
+import {ItemsComponent} from './components/item/items/items.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import {EditClientComponent} from './components/client/edit-client/edit-client.c
     AddFormComponent,
     FormsComponent,
     ClientsComponent,
-    EditClientComponent
+    EditClientComponent,
+    ManageFormComponent,
+    AddServiceComponent,
+    AddItemComponent,
+    ItemsComponent
   ],
   imports: [
     BrowserModule,
