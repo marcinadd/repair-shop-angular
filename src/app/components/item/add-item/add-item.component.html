@@ -1,1 +1,29 @@
-<p>add-item works!</p>
+<div>
+  <h4>Add service/part</h4>
+  <form (ngSubmit)="onSubmit(formItem.value)" [formGroup]="formItem" class="form">
+    <ng-select [items]="buyables"
+               bindLabel="name"
+               formControlName="buyable"
+               placeholder="Select part/service"
+    >
+      <ng-template ] let-item="item" ng-label-tmp>
+        <span>{{ item.name + ' (' + item.price + ')' }}</span>
+      </ng-template>
+      <ng-template let-index="index" let-item="item" let-search="searchTerm" ng-option-tmp>
+        <span>{{ item.name + ' (' + item.price + ')' }}</span>
+      </ng-template>
+
+    </ng-select>
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input class="form-control" formControlName="quantity" id="quantity" placeholder="Enter quantity" type="number">
+    </div>
+
+    <div>
+      <h4>Total Price: </h4> {{formItem.value.buyable.price * formItem.value.quantity}}
+    </div>
+
+    <button class="btn btn-success mb-2" type="submit">Add</button>
+  </form>
+</div>
+

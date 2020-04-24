@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Item} from '../../../model/Item';
 
 @Component({
   selector: 'app-items',
@@ -6,7 +7,8 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  @Input('formId') formId: number;
+  @Input() items: Item[];
+  @Input() formId: number;
 
   constructor() {
   }
