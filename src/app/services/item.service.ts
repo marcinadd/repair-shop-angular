@@ -13,7 +13,7 @@ export class ItemService {
   constructor(private http: HttpClient) {
   }
 
-  addItem(buyable): Observable<Item> {
-    return this.http.post<Item>(this.apiFormUrl, buyable, environment.httpOptions);
+  addItem(item): Observable<Item> {
+    return this.http.post<Item>(this.apiFormUrl, item, environment.httpOptions);
   }
 }

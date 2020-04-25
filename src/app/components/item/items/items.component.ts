@@ -17,4 +17,7 @@ export class ItemsComponent implements OnInit {
 
   }
 
+  addItem(item: Item) {
+    this.items.push(item);
+  }
 }
