@@ -12,17 +12,15 @@
       <ng-template let-index="index" let-item="item" let-search="searchTerm" ng-option-tmp>
         <span>{{ item.name + ' (' + item.price + ')' }}</span>
       </ng-template>
-
     </ng-select>
     <div class="form-group">
       <label for="quantity">Quantity</label>
-      <input class="form-control" formControlName="quantity" id="quantity" placeholder="Enter quantity" type="number">
+      <input class="form-control" formControlName="quantity" id="quantity" min="1" placeholder="Enter quantity"
+             type="number">
     </div>
-
     <div>
-      <h4>Total Price: </h4> {{formItem.value.buyable.price * formItem.value.quantity}}
+      <h4>Price: </h4> {{formItem.value.buyable.price * formItem.value.quantity}}
     </div>
-
     <button class="btn btn-success mb-2" type="submit">Add</button>
   </form>
 </div>

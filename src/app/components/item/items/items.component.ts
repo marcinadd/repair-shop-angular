@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Item} from '../../../model/Item';
+import {ItemService} from '../../../services/item.service';
 
 @Component({
   selector: 'app-items',
@@ -10,7 +11,7 @@ export class ItemsComponent implements OnInit {
   @Input() items: Item[];
   @Input() formId: number;
 
-  constructor() {
+  constructor(private itemService: ItemService) {
   }
 
   ngOnInit(): void {
@@ -19,5 +20,13 @@ export class ItemsComponent implements OnInit {
 
   addItem(item: Item) {
     this.items.push(item);
+  }
+
+  deleteItem(itemId) {
+    this.itemService.deleteItem(itemId).subscribe(response => {
+      if (response) {
+        this.items = this.items.filter(item => item.id !== itemId);
+      }
+    });
   }
 }

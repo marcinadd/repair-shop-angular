@@ -16,4 +16,8 @@ export class ItemService {
   addItem(item): Observable<Item> {
     return this.http.post<Item>(this.apiFormUrl, item, environment.httpOptions);
   }
+
+  deleteItem(itemId): Observable<any> {
+    return this.http.delete<any>(this.apiFormUrl + '/' + itemId);
+  }
 }
