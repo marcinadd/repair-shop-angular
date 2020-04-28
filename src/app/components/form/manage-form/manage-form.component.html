@@ -1,42 +1,7 @@
 <div class="container">
   <h1>Manage form</h1>
   <h2>Form details: </h2>
-  <table class="table table-bordered">
-    <tbody>
-    <tr>
-      <th scope="row">Form id</th>
-      <td>{{form.id}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Client</th>
-      <td>{{form.client.firstName}} {{form.client.lastName}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Client phone</th>
-      <td>{{form.client.phone}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Client email</th>
-      <td>{{form.client.email}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Repairable name</th>
-      <td>{{form.repairable.name}}</td>
-    </tr>
-    <tr>
-      <th scope="row">S/N</th>
-      <td>{{form.repairable.serial}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Description</th>
-      <td>{{ form.description }}</td>
-    </tr>
-    <tr>
-      <th scope="row">Status</th>
-      <td>{{form.status}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <app-details-form [form]="form"></app-details-form>
   <h2>Services/Parts: </h2>
   <app-items [formId]="form.id" [items]="form.items"></app-items>
 </div>
