@@ -19,6 +19,7 @@ import {AddServiceComponent} from './components/item/buyable/service/add-service
 import {AddItemComponent} from './components/item/add-item/add-item.component';
 import {ItemsComponent} from './components/item/items/items.component';
 import {DetailsFormComponent} from './components/form/manage-form/details-form/details-form.component';
+import {StatusFormComponent} from './components/form/manage-form/status-form/status-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {DetailsFormComponent} from './components/form/manage-form/details-form/d
     AddServiceComponent,
     AddItemComponent,
     ItemsComponent,
-    DetailsFormComponent
+    DetailsFormComponent,
+    StatusFormComponent
   ],
   imports: [
     BrowserModule,

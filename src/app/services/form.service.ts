@@ -24,4 +24,8 @@ export class FormService {
   getFormById(formId: string): Observable<Form> {
     return this.http.get<Form>(this.apiFormUrl + '/' + formId);
   }
+
+  patchForm(form: Form): Observable<Form> {
+    return this.http.patch<Form>(this.apiFormUrl + '/' + form.id, form, environment.httpOptions);
+  }
 }

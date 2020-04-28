@@ -1,7 +1,12 @@
 <div class="container">
   <h1>Manage form</h1>
-  <h2>Form details: </h2>
+  <h2>Form details:</h2>
   <app-details-form [form]="form"></app-details-form>
-  <h2>Services/Parts: </h2>
+  <h2>Form status:</h2>
+  <app-status-form [form]="form"></app-status-form>
+  <h2>Services/Parts:</h2>
   <app-items [formId]="form.id" [items]="form.items"></app-items>
+  <a [href]="downloadURL">
+    <button class="btn btn-warning">Download PDF</button>
+  </a>
 </div>

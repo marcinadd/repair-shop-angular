@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()">
+  <ng-select
+    [(ngModel)]="selectedStatus"
+    [items]="items"
+    bindLabel="name"
+    bindValue="status"
+    name="status"
+    placeholder="Select new status">
+  </ng-select>
+  <button class="btn btn-success">Set</button>
+</form>
