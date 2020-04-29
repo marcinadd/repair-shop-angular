@@ -24,14 +24,18 @@ export class AddFormComponent implements OnInit {
   ) {
     this.formCreate = this.formBuilder.group({
       description: '',
-      clientId: [''],
-      repairableId: [''],
+      clientId: null,
+      repairableId: null,
     });
   }
 
   ngOnInit(): void {
-    this.clientService.getClients().subscribe(data => {
-      this.clients = data;
+    this.clientService.getClients().subscribe(clients => {
+      this.clients = clients;
+      if (clients.length > 0) {
+        this.formCreate.patchValue({clientId: clients[0].id});
+        this.onSelect(clients[0]);
+      }
     });
   }
 
@@ -41,9 +45,14 @@ export class AddFormComponent implements OnInit {
     });
   }
 
-  onSelect(ownerId) {
-    this.repairableSerivce.getRepairablesByOwnerId(ownerId).subscribe(repairables => {
+  onSelect(selectedOwner) {
+    this.repairableSerivce.getRepairablesByOwnerId(selectedOwner.id).subscribe(repairables => {
       this.repairables = repairables;
+      if (repairables.length > 0) {
+        this.formCreate.patchValue({repairableId: repairables[0].id});
+      } else {
+        this.formCreate.patchValue({repairableId: null});
+      }
     });
   }
 }
