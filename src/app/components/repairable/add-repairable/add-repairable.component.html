@@ -12,15 +12,22 @@
     </label>
     <input class="form-control" formControlName="serial" id="serial" type="text">
   </div>
-
   <div class="form-group">
     <label for="owner_id">
-      <select formControlName="ownerId">
-        <option *ngFor="let client of clients" [value]="client.id" id="owner_id">
-          {{client.lastName}} {{client.firstName}} {{client.phone}}
-        </option>
-      </select>
+      Client
     </label>
+    <ng-select [items]="clients"
+               bindLabel="name"
+               bindValue="id"
+               formControlName="ownerId"
+               id="ownerId">
+      <ng-template let-item="item" ng-label-tmp>
+        <span>{{ item.firstName + ' ' + item.lastName }}</span>
+      </ng-template>
+      <ng-template let-index="index" let-item="item" let-search="searchTerm" ng-option-tmp>
+        <span>{{ item.firstName + ' ' + item.lastName }}</span>
+      </ng-template>
+    </ng-select>
   </div>
   <button class="btn btn-success" type="submit">Save</button>
 </form>

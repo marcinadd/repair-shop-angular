@@ -21,8 +21,11 @@ export class AddRepairableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.clientService.getClients().subscribe(data => {
-      this.clients = data;
+    this.clientService.getClients().subscribe(clients => {
+      this.clients = clients;
+      if (clients.length > 0) {
+        this.repairableCreateForm.patchValue({ownerId: clients[0].id});
+      }
     });
   }
 

@@ -11,15 +11,15 @@ export class AddClientComponent implements OnInit {
   clientCreateForm;
 
   constructor(private clientService: ClientService, private formBuilder: FormBuilder) {
+  }
+
+  ngOnInit(): void {
     this.clientCreateForm = this.formBuilder.group({
       firstName: '',
       lastName: '',
       phone: '',
       email: ''
     });
-  }
-
-  ngOnInit(): void {
   }
 
   onSubmit(clientData) {

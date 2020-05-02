@@ -11,9 +11,6 @@
     <th>Mail</th>
     <th>Edit</th>
     </thead>
-    <div *ngIf="clients.length == 0">
-      No results
-    </div>
     <tr *ngFor="let client of clients">
       <td>{{client.firstName}}</td>
       <td>{{client.lastName}}</td>

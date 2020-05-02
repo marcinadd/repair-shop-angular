@@ -14,8 +14,8 @@ import {AddServiceComponent} from './components/item/buyable/service/add-service
 const routes: Routes = [
   {path: '', component: IndexComponent},
   {path: 'clients', component: ClientsComponent},
-  {path: 'clients/:id', component: EditClientComponent},
   {path: 'clients/add', component: AddClientComponent},
+  {path: 'clients/:id', component: EditClientComponent},
   {path: 'repairables/add', component: AddRepairableComponent},
   {path: 'forms/add', component: AddFormComponent},
   {path: 'forms', component: FormsComponent},

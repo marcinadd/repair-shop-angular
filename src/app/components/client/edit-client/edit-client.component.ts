@@ -20,15 +20,16 @@ export class EditClientComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.clientEditForm = this.formBuilder.group({
+      id: '',
+      firstName: '',
+      lastName: '',
+      phone: '',
+      email: ''
+    });
     this.clientService.findClientById(this.route.snapshot.paramMap.get('id')).subscribe(client => {
-      console.log(client);
-      this.clientEditForm = this.formBuilder.group({
-        id: client.id,
-        firstName: client.firstName,
-        lastName: client.lastName,
-        phone: client.phone,
-        email: client.email
-      });
+      this.client = client;
+      this.clientEditForm.patchValue({id: client.id});
     });
   }
 
