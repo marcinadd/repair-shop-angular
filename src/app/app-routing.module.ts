@@ -9,6 +9,7 @@ import {ClientsComponent} from './components/client/clients/clients.component';
 import {EditClientComponent} from './components/client/edit-client/edit-client.component';
 import {ManageFormComponent} from './components/form/manage-form/manage-form.component';
 import {AddServiceComponent} from './components/item/buyable/service/add-service/add-service.component';
+import {LoginComponent} from './components/user/login/login.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,8 @@ const routes: Routes = [
   {path: 'forms', component: FormsComponent},
   {path: 'forms/:id', component: ManageFormComponent},
   {path: 'services/add', component: AddServiceComponent},
+
+  {path: 'login', component: LoginComponent},
 ];
 
 @NgModule({

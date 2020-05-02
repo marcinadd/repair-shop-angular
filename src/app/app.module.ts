@@ -4,6 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {NgSelectModule} from '@ng-select/ng-select';
+import {OAuthModule} from 'angular-oauth2-oidc';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './layout/header/header.component';
@@ -20,6 +21,8 @@ import {AddItemComponent} from './components/item/add-item/add-item.component';
 import {ItemsComponent} from './components/item/items/items.component';
 import {DetailsFormComponent} from './components/form/manage-form/details-form/details-form.component';
 import {StatusFormComponent} from './components/form/manage-form/status-form/status-form.component';
+import {LoginComponent} from './components/user/login/login.component';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,8 @@ import {StatusFormComponent} from './components/form/manage-form/status-form/sta
     AddItemComponent,
     ItemsComponent,
     DetailsFormComponent,
-    StatusFormComponent
+    StatusFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,13 @@ import {StatusFormComponent} from './components/form/manage-form/status-form/sta
     ReactiveFormsModule,
     HttpClientModule,
     NgSelectModule,
-    FormsModule
+    FormsModule,
+    OAuthModule.forRoot({
+      resourceServer: {
+        sendAccessToken: true,
+        allowedUrls: [environment.apiUrl]
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
