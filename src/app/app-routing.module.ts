@@ -10,24 +10,30 @@ import {EditClientComponent} from './components/client/edit-client/edit-client.c
 import {ManageFormComponent} from './components/form/manage-form/manage-form.component';
 import {AddServiceComponent} from './components/item/buyable/service/add-service/add-service.component';
 import {LoginComponent} from './components/user/login/login.component';
+import {AuthGuard} from './guards/auth.guard';
 
 
 const routes: Routes = [
-  {path: '', component: IndexComponent},
-  {path: 'clients', component: ClientsComponent},
-  {path: 'clients/add', component: AddClientComponent},
-  {path: 'clients/:id', component: EditClientComponent},
-  {path: 'repairables/add', component: AddRepairableComponent},
-  {path: 'forms/add', component: AddFormComponent},
-  {path: 'forms', component: FormsComponent},
-  {path: 'forms/:id', component: ManageFormComponent},
-  {path: 'services/add', component: AddServiceComponent},
-
   {path: 'login', component: LoginComponent},
+
+  {
+    path: '', canActivate: [AuthGuard], children: [
+      {path: '', component: IndexComponent},
+      {path: 'clients', component: ClientsComponent, canActivate: [AuthGuard]},
+      {path: 'clients/add', component: AddClientComponent},
+      {path: 'clients/:id', component: EditClientComponent},
+      {path: 'repairables/add', component: AddRepairableComponent},
+      {path: 'forms/add', component: AddFormComponent},
+      {path: 'forms', component: FormsComponent},
+      {path: 'forms/:id', component: ManageFormComponent},
+      {path: 'services/add', component: AddServiceComponent},
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

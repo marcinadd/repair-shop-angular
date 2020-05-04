@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form) {
-    this.oauthService.fetchTokenUsingPasswordFlow(form.username, form.password).then(() => {
+    this.oauthService.fetchTokenUsingPasswordFlow(form.username, form.password)
+      .then(() => {
       this.router.navigate(['/']);
     }).catch(() => {
       alert('Login error');
