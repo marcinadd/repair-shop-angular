@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 import {HttpHeaders} from '@angular/common/http';
+import {AuthConfig} from 'angular-oauth2-oidc';
 
 export const environment = {
   production: false,
@@ -11,7 +12,12 @@ export const environment = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  }
+  },
+  authConfig: new AuthConfig({
+    tokenEndpoint: 'http://localhost:8081/auth/realms/Repair-Shop/protocol/openid-connect/token',
+    clientId: 'sso-client',
+    dummyClientSecret: '6385378d-1874-4fee-938e-7e46c8e80df6'
+  })
 };
 
 /*

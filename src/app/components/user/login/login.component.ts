@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthConfig, OAuthService} from 'angular-oauth2-oidc';
+import {OAuthService} from 'angular-oauth2-oidc';
+import {FormBuilder} from '@angular/forms';
+import {Router} from '@angular/router';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -7,21 +10,28 @@ import {AuthConfig, OAuthService} from 'angular-oauth2-oidc';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loginForm;
 
-
-  constructor(private oauthService: OAuthService) {
-    const config = new AuthConfig();
-    config.tokenEndpoint = 'http://localhost:8081/auth/realms/Repair-Shop/protocol/openid-connect/token';
-    config.clientId = 'sso-client';
-    config.dummyClientSecret = '6385378d-1874-4fee-938e-7e46c8e80df6';
-    this.oauthService.configure(config);
-
-    this.oauthService.fetchTokenUsingPasswordFlow('marcinadd', 'marcinadd').then((resp) => {
-      console.log(resp);
-    });
+  constructor(
+    private oauthService: OAuthService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
+    this.oauthService.configure(environment.authConfig);
   }
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      username: '',
+      password: ''
+    });
   }
 
+  onSubmit(form) {
+    this.oauthService.fetchTokenUsingPasswordFlow(form.username, form.password).then(() => {
+      this.router.navigate(['/']);
+    }).catch(() => {
+      alert('Login error');
+    });
+  }
 }
