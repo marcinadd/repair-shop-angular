@@ -23,6 +23,8 @@ import {DetailsFormComponent} from './components/form/manage-form/details-form/d
 import {StatusFormComponent} from './components/form/manage-form/status-form/status-form.component';
 import {LoginComponent} from './components/user/login/login.component';
 import {environment} from '../environments/environment';
+import {MyCurrencyPipe} from './pipes/my-currency.pipe';
+import {CurrencyPipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import {environment} from '../environments/environment';
     ItemsComponent,
     DetailsFormComponent,
     StatusFormComponent,
-    LoginComponent
+    LoginComponent,
+    MyCurrencyPipe
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,7 @@ import {environment} from '../environments/environment';
       }
     }),
   ],
-  providers: [],
+  providers: [CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

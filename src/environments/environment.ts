@@ -18,7 +18,8 @@ export const environment = {
     clientId: 'sso-client',
     dummyClientSecret: '829f97df-2f14-4946-9db8-b1788e089332',
     scope: 'profile email offline_access',
-  })
+  }),
+  currency: 'USD',
 };
 
 /*

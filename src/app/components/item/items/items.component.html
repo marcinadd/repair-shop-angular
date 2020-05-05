@@ -10,9 +10,9 @@
     <tbody>
     <tr *ngFor="let item of items">
       <td>{{item.buyable.name}}</td>
-      <td>{{item.itemPrice}}</td>
+      <td>{{item.itemPrice|myCurrency}}</td>
       <td>{{item.quantity}}</td>
-      <td>{{item.quantity * item.itemPrice}}</td>
+      <td>{{item.quantity * item.itemPrice|myCurrency}}</td>
       <td>
         <button (click)="deleteItem(item.id)" class="btn btn-danger">Delete</button>
       </td>
