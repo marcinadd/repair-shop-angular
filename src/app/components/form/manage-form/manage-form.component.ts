@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormService} from '../../../services/form.service';
 import {ActivatedRoute} from '@angular/router';
 import {environment} from '../../../../environments/environment';
+import {FileService} from '../../../services/file.service';
+import {saveAs} from 'file-saver';
 
 @Component({
   selector: 'app-manage-form',
@@ -10,18 +12,23 @@ import {environment} from '../../../../environments/environment';
 })
 export class ManageFormComponent implements OnInit {
   form;
-  downloadURL;
 
   constructor(
     private formService: FormService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private fileService: FileService
   ) {
   }
 
   ngOnInit(): void {
     this.formService.getFormById(this.route.snapshot.paramMap.get('id')).subscribe(form => {
       this.form = form;
-      this.downloadURL = environment.apiUrl + '/pdf/forms/' + form.id;
+    });
+  }
+
+  onDownloadPdfButtonClick() {
+    this.fileService.getFileAsBlob(environment.apiUrl + '/pdf/forms/' + this.form.id).subscribe(data => {
+      saveAs(data, this.form.id + '.pdf');
     });
   }
 }
