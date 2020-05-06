@@ -31,8 +31,27 @@ export class ServicesComponent implements OnInit {
       data: {id: service.id, price: service.price}
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('Closed');
+      if (result && result !== service.price) {
+        this.updatePrice(service.id, result);
+      }
     });
   }
 
+  updatePrice(serviceId: number, price: number) {
+    this.serviceService.updatePrice(serviceId, price).subscribe(updatedService => {
+      this.services.forEach(service => {
+        if (service.id === updatedService.id) {
+          service.price = updatedService.price;
+        }
+      });
+    });
+  }
+
+  deleteService(serviceId: number) {
+    this.serviceService.deleteService(serviceId).subscribe(result => {
+      if (result) {
+        this.services = this.services.filter(s => s.id !== serviceId);
+      }
+    });
+  }
 }

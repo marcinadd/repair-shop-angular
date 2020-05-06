@@ -6,12 +6,16 @@
     <th>Name</th>
     <th>Price</th>
     <th>Edit price</th>
+    <th>Delete service</th>
     </thead>
     <tr *ngFor="let service of services | filter:searchText">
       <td>{{service.name}}</td>
       <td>{{service.price}}</td>
       <td>
         <button (click)="openDialog(service)" class="btn btn-primary">Edit price</button>
+      </td>
+      <td>
+        <button (click)="deleteService(service.id)" class="btn btn-danger">Delete</button>
       </td>
     </tr>
   </table>

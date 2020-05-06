@@ -32,6 +32,7 @@ import {ChangePriceComponent} from './components/item/buyable/service/services/c
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -67,12 +68,13 @@ import {MatInputModule} from '@angular/material/input';
     MatInputModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
+    MatButtonModule,
     OAuthModule.forRoot({
       resourceServer: {
         sendAccessToken: true,
         allowedUrls: [environment.apiUrl]
       }
-    }),
+    })
   ],
   providers: [CurrencyPipe],
   bootstrap: [AppComponent]

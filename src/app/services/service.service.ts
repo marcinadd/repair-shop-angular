@@ -8,16 +8,24 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ServiceService {
-  apiFormUrl = environment.apiUrl + '/services';
+  apiServiceUrl = environment.apiUrl + '/services';
 
   constructor(private http: HttpClient) {
   }
 
   addService(service: Service): Observable<Service> {
-    return this.http.post<Service>(this.apiFormUrl, service, environment.httpOptions);
+    return this.http.post<Service>(this.apiServiceUrl, service, environment.httpOptions);
   }
 
   getServices(): Observable<Service[]> {
-    return this.http.get<Service[]>(this.apiFormUrl);
+    return this.http.get<Service[]>(this.apiServiceUrl);
+  }
+
+  updatePrice(serviceId: number, priceVal: number): Observable<Service> {
+    return this.http.patch<Service>(`${this.apiServiceUrl}/${serviceId}`, {price: priceVal}, environment.httpOptions);
+  }
+
+  deleteService(serviceId: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.apiServiceUrl}/${serviceId}`, environment.httpOptions);
   }
 }
