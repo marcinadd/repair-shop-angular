@@ -16,4 +16,8 @@ export class ServiceService {
   addService(service: Service): Observable<Service> {
     return this.http.post<Service>(this.apiFormUrl, service, environment.httpOptions);
   }
+
+  getServices(): Observable<Service[]> {
+    return this.http.get<Service[]>(this.apiFormUrl);
+  }
 }

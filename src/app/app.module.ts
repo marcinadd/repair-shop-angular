@@ -5,6 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {OAuthModule} from 'angular-oauth2-oidc';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './layout/header/header.component';
@@ -25,6 +26,12 @@ import {LoginComponent} from './components/user/login/login.component';
 import {environment} from '../environments/environment';
 import {MyCurrencyPipe} from './pipes/my-currency.pipe';
 import {CurrencyPipe} from '@angular/common';
+import {ServicesComponent} from './components/item/buyable/service/services/services.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ChangePriceComponent} from './components/item/buyable/service/services/change-price/change-price.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -44,7 +51,9 @@ import {CurrencyPipe} from '@angular/common';
     DetailsFormComponent,
     StatusFormComponent,
     LoginComponent,
-    MyCurrencyPipe
+    MyCurrencyPipe,
+    ServicesComponent,
+    ChangePriceComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +62,11 @@ import {CurrencyPipe} from '@angular/common';
     HttpClientModule,
     NgSelectModule,
     FormsModule,
+    MatDialogModule,
+    Ng2SearchPipeModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
     OAuthModule.forRoot({
       resourceServer: {
         sendAccessToken: true,

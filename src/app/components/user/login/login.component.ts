@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
       username: '',
       password: ''
     });
+    this.oauthService.refreshToken();
   }
 
   onSubmit(form) {

@@ -11,6 +11,7 @@ import {ManageFormComponent} from './components/form/manage-form/manage-form.com
 import {AddServiceComponent} from './components/item/buyable/service/add-service/add-service.component';
 import {LoginComponent} from './components/user/login/login.component';
 import {AuthGuard} from './guards/auth.guard';
+import {ServicesComponent} from './components/item/buyable/service/services/services.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
       {path: 'forms', component: FormsComponent},
       {path: 'forms/:id', component: ManageFormComponent},
       {path: 'services/add', component: AddServiceComponent},
+      {path: 'services', component: ServicesComponent},
     ]
   }
 ];
