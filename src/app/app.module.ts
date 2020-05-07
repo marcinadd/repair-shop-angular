@@ -33,6 +33,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {AddPartComponent} from './components/item/buyable/part/add-part/add-part.component';
+import {PartsComponent} from './components/item/buyable/part/parts/parts.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import {MatButtonModule} from '@angular/material/button';
     LoginComponent,
     MyCurrencyPipe,
     ServicesComponent,
-    ChangePriceComponent
+    ChangePriceComponent,
+    AddPartComponent,
+    PartsComponent
   ],
   imports: [
     BrowserModule,

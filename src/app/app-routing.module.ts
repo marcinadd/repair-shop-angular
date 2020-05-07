@@ -12,6 +12,8 @@ import {AddServiceComponent} from './components/item/buyable/service/add-service
 import {LoginComponent} from './components/user/login/login.component';
 import {AuthGuard} from './guards/auth.guard';
 import {ServicesComponent} from './components/item/buyable/service/services/services.component';
+import {AddPartComponent} from './components/item/buyable/part/add-part/add-part.component';
+import {PartsComponent} from './components/item/buyable/part/parts/parts.component';
 
 
 const routes: Routes = [
@@ -29,6 +31,8 @@ const routes: Routes = [
       {path: 'forms/:id', component: ManageFormComponent},
       {path: 'services/add', component: AddServiceComponent},
       {path: 'services', component: ServicesComponent},
+      {path: 'parts/add', component: AddPartComponent},
+      {path: 'parts', component: PartsComponent},
     ]
   }
 ];

@@ -1,0 +1,19 @@
+<div class="container">
+  <input [(ngModel)]="searchText" autocomplete="off" class="form-control" name="search" placeholder="Enter part name"
+         type="text">
+  <table class="table table-bordered">
+    <thead>
+    <th>Name</th>
+    <th>Price</th>
+    <th>In stock Quantity</th>
+    <th>Edit price</th>
+    <th>Edit in stock quantity</th>
+    <th>Delete part</th>
+    </thead>
+    <tr *ngFor="let part of parts | filter:searchText">
+      <td>{{part.name}}</td>
+      <td>{{part.price}}</td>
+      <td>{{part.inStockQuantity}}</td>
+    </tr>
+  </table>
+</div>

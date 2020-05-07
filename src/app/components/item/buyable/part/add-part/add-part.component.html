@@ -1,0 +1,25 @@
+<form (ngSubmit)="onSubmit(partCreateForm.value)" [formGroup]="partCreateForm" class="form">
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+    <input class="form-control" formControlName="name" id="name" type="text">
+  </div>
+  <div class="form-group">
+    <label for="price">
+      Price
+    </label>
+    <input class="form-control" formControlName="price" id="price" type="text">
+  </div>
+  <div class="form-group">
+    <label for="quantity">
+      Quantity
+    </label>
+    <input class="form-control" formControlName="inStockQuantity" id="quantity" type="text">
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" formControlName="unlimited" id="unlimited" type="checkbox">
+    <label class="form-check-label" for="unlimited">Unlimited</label>
+  </div>
+  <button class="btn btn-success" type="submit">Save</button>
+</form>
