@@ -1,25 +1,51 @@
 <div>
   <h4>Add service/part</h4>
   <form (ngSubmit)="onSubmit(formItem.value)" [formGroup]="formItem" class="form">
-    <ng-select [items]="buyables"
-               bindLabel="name"
-               formControlName="buyable"
-               placeholder="Select part/service"
-    >
-      <ng-template ] let-item="item" ng-label-tmp>
-        <span>{{ item.name}} ({{item.price|myCurrency}})</span>
-      </ng-template>
-      <ng-template let-index="index" let-item="item" let-search="searchTerm" ng-option-tmp>
-        <span>{{ item.name}} ({{item.price|myCurrency}})</span>
-      </ng-template>
-    </ng-select>
+    <mat-tab-group (selectedIndexChange)="selected.setValue($event)"
+                   [selectedIndex]="selected.value"
+                   dynamicHeight>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          Part
+        </ng-template>
+        <ng-select [items]="parts"
+                   appendTo="body"
+                   bindLabel="name"
+                   formControlName="part"
+                   placeholder="Select part">
+          <ng-template ] let-item="item" ng-label-tmp>
+            <span>{{ item.name}} ({{item.price|myCurrency}})</span>
+          </ng-template>
+          <ng-template let-index="index" let-item="item" let-search="searchTerm" ng-option-tmp>
+            <span>{{ item.name}} ({{item.price|myCurrency}}) In stock: {{item.inStockQuantity}}</span>
+          </ng-template>
+        </ng-select>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          Service
+        </ng-template>
+        <ng-select [items]="services"
+                   appendTo="body"
+                   bindLabel="name"
+                   formControlName="service"
+                   placeholder="Select service">
+          <ng-template ] let-item="item" ng-label-tmp>
+            <span>{{ item.name}} ({{item.price|myCurrency}})</span>
+          </ng-template>
+          <ng-template let-index="index" let-item="item" let-search="searchTerm" ng-option-tmp>
+            <span>{{ item.name}} ({{item.price|myCurrency}})</span>
+          </ng-template>
+        </ng-select>
+      </mat-tab>
+    </mat-tab-group>
     <div class="form-group">
       <label for="quantity">Quantity</label>
       <input class="form-control" formControlName="quantity" id="quantity" min="1" placeholder="Enter quantity"
              type="number">
     </div>
     <div>
-      <h4>Price: </h4> {{formItem.value.buyable.price * formItem.value.quantity |myCurrency}}
+      <!--      <h4>Price: </h4> {{formItem.value.buyable.price * formItem.value.quantity |myCurrency}}-->
     </div>
     <button class="btn btn-success mb-2" type="submit">Add</button>
   </form>

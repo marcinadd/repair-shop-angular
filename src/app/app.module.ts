@@ -35,6 +35,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {AddPartComponent} from './components/item/buyable/part/add-part/add-part.component';
 import {PartsComponent} from './components/item/buyable/part/parts/parts.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import {PartsComponent} from './components/item/buyable/part/parts/parts.compone
         sendAccessToken: true,
         allowedUrls: [environment.apiUrl]
       }
-    })
+    }),
+    MatTabsModule
   ],
   providers: [CurrencyPipe],
   bootstrap: [AppComponent]
