@@ -18,6 +18,14 @@ export class PartService {
     return this.http.post<Part>(this.apiPartUrl, part, environment.httpOptions);
   }
 
+  updatePrice(partId: number, priceVal: number): Observable<Part> {
+    return this.http.patch<Part>(`${this.apiPartUrl}/${partId}`, {price: priceVal}, environment.httpOptions);
+  }
+
+  updatePart(partId: number, toUpdate: Part): Observable<Part> {
+    return this.http.patch<Part>(`${this.apiPartUrl}/${partId}`, toUpdate, environment.httpOptions);
+  }
+
   getParts(): Observable<Part[]> {
     return this.http.get<Part[]>(this.apiPartUrl);
   }

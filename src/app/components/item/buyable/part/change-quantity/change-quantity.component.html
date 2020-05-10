@@ -1,0 +1,8 @@
+<mat-form-field>
+  <mat-label>Enter quantity</mat-label>
+  <input [(ngModel)]="data.quantity" matInput type="number">
+</mat-form-field>
+<mat-dialog-actions>
+  <button (click)="onNoClick()" mat-button>Dismiss</button>
+  <button [mat-dialog-close]="data.quantity" mat-button>Save</button>
+</mat-dialog-actions>

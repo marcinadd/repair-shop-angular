@@ -28,7 +28,7 @@ import {MyCurrencyPipe} from './pipes/my-currency.pipe';
 import {CurrencyPipe} from '@angular/common';
 import {ServicesComponent} from './components/item/buyable/service/services/services.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ChangePriceComponent} from './components/item/buyable/service/services/change-price/change-price.component';
+import {ChangePriceComponent} from './components/item/buyable/change-price/change-price.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -36,6 +36,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {AddPartComponent} from './components/item/buyable/part/add-part/add-part.component';
 import {PartsComponent} from './components/item/buyable/part/parts/parts.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {ChangeQuantityComponent} from './components/item/buyable/part/change-quantity/change-quantity.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     ServicesComponent,
     ChangePriceComponent,
     AddPartComponent,
-    PartsComponent
+    PartsComponent,
+    ChangeQuantityComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,10 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {PriceDialogData} from '../services.component';
+
+export interface PriceDialogData {
+  id: number;
+  price: number;
+}
 
 @Component({
   selector: 'app-change-price',
@@ -17,5 +21,4 @@ export class ChangePriceComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
 }

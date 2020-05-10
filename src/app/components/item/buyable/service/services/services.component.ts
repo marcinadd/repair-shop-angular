@@ -1,12 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ServiceService} from '../../../../../services/service.service';
 import {MatDialog} from '@angular/material/dialog';
-import {ChangePriceComponent} from './change-price/change-price.component';
-
-export interface PriceDialogData {
-  id: number;
-  price: number;
-}
+import {ChangePriceComponent} from '../../change-price/change-price.component';
 
 @Component({
   selector: 'app-services',
