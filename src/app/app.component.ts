@@ -12,6 +12,7 @@ export class AppComponent {
 
   constructor(oauthService: OAuthService) {
     oauthService.configure(environment.authConfig);
+    oauthService.initImplicitFlow();
     oauthService.setupAutomaticSilentRefresh();
   }
 }

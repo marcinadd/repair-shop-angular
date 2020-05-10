@@ -16,8 +16,13 @@ export const environment = {
   authConfig: new AuthConfig({
     tokenEndpoint: 'http://localhost:8081/auth/realms/Repair-Shop/protocol/openid-connect/token',
     clientId: 'sso-client',
-    dummyClientSecret: '829f97df-2f14-4946-9db8-b1788e089332',
+    showDebugInformation: true,
+    redirectUri: window.location.origin + '/index.html',
+    silentRefreshRedirectUri: window.location.origin + '/silent-refresh.html',
+    silentRefreshTimeout: 3000,
+    issuer: 'http://localhost:8081/auth/realms/sso-client',
     scope: 'profile email offline_access',
+    responseType: 'code',
   }),
   currency: 'USD',
 };
