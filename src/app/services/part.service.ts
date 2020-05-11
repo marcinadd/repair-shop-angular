@@ -30,4 +30,7 @@ export class PartService {
     return this.http.get<Part[]>(this.apiPartUrl);
   }
 
+  deletePart(partId: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${this.apiPartUrl}/${partId}`);
+  }
 }

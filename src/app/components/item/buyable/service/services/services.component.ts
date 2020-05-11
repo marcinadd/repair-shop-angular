@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ServiceService} from '../../../../../services/service.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ChangePriceComponent} from '../../change-price/change-price.component';
+import {DeleteBuyableComponent} from '../../delete-buyable/delete-buyable.component';
+import {Service} from '../../../../../model/Service';
 
 @Component({
   selector: 'app-services',
@@ -20,7 +22,7 @@ export class ServicesComponent implements OnInit {
     this.serviceService.getServices().subscribe(services => this.services = services);
   }
 
-  openDialog(service): void {
+  openChangePriceDialog(service: Service): void {
     const dialogRef = this.dialog.open(ChangePriceComponent, {
       width: '250px',
       data: {id: service.id, price: service.price}
@@ -28,6 +30,18 @@ export class ServicesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result && result !== service.price) {
         this.updatePrice(service.id, result);
+      }
+    });
+  }
+
+  openDeleteServiceDialog(service: Service): void {
+    const dialogRef = this.dialog.open(DeleteBuyableComponent, {
+      width: '250px',
+      data: {id: service.id, name: service.name}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteService(service.id);
       }
     });
   }

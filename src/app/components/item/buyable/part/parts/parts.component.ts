@@ -4,6 +4,7 @@ import {ChangePriceComponent} from '../../change-price/change-price.component';
 import {MatDialog} from '@angular/material/dialog';
 import {Part} from '../../../../../model/Part';
 import {ChangeQuantityComponent} from '../change-quantity/change-quantity.component';
+import {DeleteBuyableComponent} from '../../delete-buyable/delete-buyable.component';
 
 @Component({
   selector: 'app-parts',
@@ -47,6 +48,18 @@ export class PartsComponent implements OnInit {
     });
   }
 
+  deletePartDialog(part: Part): void {
+    const dialogRef = this.dialog.open(DeleteBuyableComponent, {
+      width: '250px',
+      data: {id: part.id, name: part.name}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deletePart(part.id);
+      }
+    });
+  }
+
   updatePrice(partId: number, toUpdatePrice: number) {
     const part = new Part();
     part.price = toUpdatePrice;
@@ -67,6 +80,14 @@ export class PartsComponent implements OnInit {
           part.inStockQuantity = updatedPart.inStockQuantity;
         }
       });
+    });
+  }
+
+  deletePart(partId: number) {
+    this.partService.deletePart(partId).subscribe(result => {
+      if (result) {
+        this.parts = this.parts.filter(part => part.id !== partId);
+      }
     });
   }
 }

@@ -12,10 +12,10 @@
       <td>{{service.name}}</td>
       <td>{{service.price}}</td>
       <td>
-        <button (click)="openDialog(service)" class="btn btn-primary">Edit price</button>
+        <button (click)="openChangePriceDialog(service)" class="btn btn-primary">Edit price</button>
       </td>
       <td>
-        <button (click)="deleteService(service.id)" class="btn btn-danger">Delete</button>
+        <button (click)="openDeleteServiceDialog(service)" class="btn btn-danger">Delete</button>
       </td>
     </tr>
   </table>
