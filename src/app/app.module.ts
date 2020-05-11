@@ -38,6 +38,7 @@ import {PartsComponent} from './components/item/buyable/part/parts/parts.compone
 import {MatTabsModule} from '@angular/material/tabs';
 import {ChangeQuantityComponent} from './components/item/buyable/part/change-quantity/change-quantity.component';
 import {DeleteBuyableComponent} from './components/item/buyable/delete-buyable/delete-buyable.component';
+import {ErrorDialogComponent} from './components/error-dialog/error-dialog.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import {DeleteBuyableComponent} from './components/item/buyable/delete-buyable/d
     AddPartComponent,
     PartsComponent,
     ChangeQuantityComponent,
-    DeleteBuyableComponent
+    DeleteBuyableComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserModule,
