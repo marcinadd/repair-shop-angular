@@ -28,4 +28,8 @@ export class FormService {
   patchForm(form: Form): Observable<Form> {
     return this.http.patch<Form>(this.apiFormUrl + '/' + form.id, form, environment.httpOptions);
   }
+
+  getFormInfo(formId: number, password: string): Observable<Form> {
+    return this.http.post<Form>(`${this.apiFormUrl}/${formId}/info`, password, environment.httpOptions);
+  }
 }

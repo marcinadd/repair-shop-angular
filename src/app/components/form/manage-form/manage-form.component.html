@@ -6,5 +6,7 @@
   <app-status-form [form]="form"></app-status-form>
   <h2>Services/Parts:</h2>
   <app-items [formId]="form.id" [items]="form.items"></app-items>
+  <h2>Summary: </h2>
   <button (click)="onDownloadPdfButtonClick()" class="btn btn-warning">Download PDF</button>
+  <button (click)="onReGeneratePasswordPressed()" class="btn btn-info">Regenerate password</button>
 </div>

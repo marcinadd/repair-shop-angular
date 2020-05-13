@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Check your form status</h1>
+  <form (ngSubmit)="onSubmit(checkStatusForm.value)" [formGroup]="checkStatusForm" class="form">
+    <div class="form-group">
+      <label for="id">
+        Form id
+      </label>
+      <input class="form-control" formControlName="id" id="id" type="text">
+    </div>
+    <div class="form-group">
+      <label for="password">
+        Password
+      </label>
+      <input class="form-control" formControlName="password" id="password" type="password">
+    </div>
+    <button class="btn btn-success" type="submit">Save</button>
+  </form>
+  <div *ngIf="form !==null">
+    <app-details-form [form]="form"></app-details-form>
+  </div>
+</div>

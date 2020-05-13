@@ -14,11 +14,12 @@ import {AuthGuard} from './guards/auth.guard';
 import {ServicesComponent} from './components/item/buyable/service/services/services.component';
 import {AddPartComponent} from './components/item/buyable/part/add-part/add-part.component';
 import {PartsComponent} from './components/item/buyable/part/parts/parts.component';
+import {FormInfoClientComponent} from './components/form/form-info-client/form-info-client.component';
 
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-
+  {path: 'formInfo', component: FormInfoClientComponent},
   {
     path: '', canActivate: [AuthGuard], children: [
       {path: '', component: IndexComponent},

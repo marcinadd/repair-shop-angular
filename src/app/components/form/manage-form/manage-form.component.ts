@@ -31,4 +31,10 @@ export class ManageFormComponent implements OnInit {
       saveAs(data, this.form.id + '.pdf');
     });
   }
+
+  onReGeneratePasswordPressed() {
+    this.fileService.getFileAsBlob(`${environment.apiUrl}/forms/${this.form.id}/regenerateClientPasswordToPdf`).subscribe(data => {
+      saveAs(data, this.form.id + '-password.pdf');
+    });
+  }
 }

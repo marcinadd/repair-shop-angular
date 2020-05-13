@@ -39,6 +39,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {ChangeQuantityComponent} from './components/item/buyable/part/change-quantity/change-quantity.component';
 import {DeleteBuyableComponent} from './components/item/buyable/delete-buyable/delete-buyable.component';
 import {ErrorDialogComponent} from './components/error-dialog/error-dialog.component';
+import {FormInfoClientComponent} from './components/form/form-info-client/form-info-client.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import {ErrorDialogComponent} from './components/error-dialog/error-dialog.compo
     PartsComponent,
     ChangeQuantityComponent,
     DeleteBuyableComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    FormInfoClientComponent
   ],
   imports: [
     BrowserModule,
