@@ -40,6 +40,8 @@ import {ChangeQuantityComponent} from './components/item/buyable/part/change-qua
 import {DeleteBuyableComponent} from './components/item/buyable/delete-buyable/delete-buyable.component';
 import {ErrorDialogComponent} from './components/error-dialog/error-dialog.component';
 import {FormInfoClientComponent} from './components/form/form-info-client/form-info-client.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {FormListComponent} from './components/form/forms/list/form-list/form-list.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import {FormInfoClientComponent} from './components/form/form-info-client/form-i
     ChangeQuantityComponent,
     DeleteBuyableComponent,
     ErrorDialogComponent,
-    FormInfoClientComponent
+    FormInfoClientComponent,
+    FormListComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,8 @@ import {FormInfoClientComponent} from './components/form/form-info-client/form-i
         allowedUrls: [environment.apiUrl]
       }
     }),
-    MatTabsModule
+    MatTabsModule,
+    MatPaginatorModule
   ],
   providers: [CurrencyPipe],
   bootstrap: [AppComponent]

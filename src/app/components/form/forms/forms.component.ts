@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormService} from '../../../services/form.service';
+import {FormStatus} from '../../../model/FormStatus';
 
 @Component({
   selector: 'app-forms',
@@ -7,15 +7,11 @@ import {FormService} from '../../../services/form.service';
   styleUrls: ['./forms.component.css']
 })
 export class FormsComponent implements OnInit {
-  forms;
+  statuses = FormStatus;
 
-  constructor(private formService: FormService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.formService.getForms().subscribe(forms => {
-      console.log(forms);
-      this.forms = forms;
-    });
   }
 }

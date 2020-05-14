@@ -1,22 +1,28 @@
-<table class="table table-bordered">
-  <thead>
-  <th>Model</th>
-  <th>Serial/Number</th>
-  <th>Description</th>
-  <th>Status</th>
-  <th>Manage</th>
-  </thead>
-  <tr *ngFor="let form of forms">
-    <td>{{form.repairable.name}}</td>
-    <td>{{form.repairable.serial}}</td>
-    <td>{{form.description}}</td>
-    <td>{{form.status}}</td>
-    <td>
-      <a [routerLink]="['/forms',form.id]">
-        <button class="btn btn-warning">
-          Manage
-        </button>
-      </a>
-    </td>
-  </tr>
-</table>
+<mat-tab-group>
+  <mat-tab label="To Do">
+    <ng-template matTabContent>
+      <app-form-list [status]="statuses.TO_DO"></app-form-list>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="In progress">
+    <ng-template matTabContent>
+      <app-form-list [status]="statuses.IN_PROGRESS"></app-form-list>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Unpaid">
+    <ng-template matTabContent>
+      <app-form-list [status]="statuses.UNPAID"></app-form-list>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Paid">
+    <ng-template matTabContent>
+      <app-form-list [status]="statuses.PAID"></app-form-list>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Completed">
+    <ng-template matTabContent>
+      <app-form-list [status]="statuses.COMPLETED"></app-form-list>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
+

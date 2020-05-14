@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {Form} from '../model/Form';
 import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Page} from '../model/Page';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,14 @@ export class FormService {
 
   getForms(): Observable<Form[]> {
     return this.http.get<Form[]>(this.apiFormUrl);
+  }
+
+  getPageOfFormsByStatus(status: string, page: number, itemsPerPage: number): Observable<Page<Form>> {
+    const params = new HttpParams()
+      .set('status', status)
+      .set('page', String(page))
+      .set('itemsPerPage', String(itemsPerPage));
+    return this.http.get<Page<Form>>(this.apiFormUrl, {params});
   }
 
   getFormById(formId: string): Observable<Form> {
