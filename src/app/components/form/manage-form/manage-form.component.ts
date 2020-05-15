@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormService} from '../../../services/form.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {environment} from '../../../../environments/environment';
 import {FileService} from '../../../services/file.service';
 import {saveAs} from 'file-saver';
@@ -16,7 +16,8 @@ export class ManageFormComponent implements OnInit {
   constructor(
     private formService: FormService,
     private route: ActivatedRoute,
-    private fileService: FileService
+    private fileService: FileService,
+    private router: Router,
   ) {
   }
 
@@ -35,6 +36,14 @@ export class ManageFormComponent implements OnInit {
   onReGeneratePasswordPressed() {
     this.fileService.getFileAsBlob(`${environment.apiUrl}/forms/${this.form.id}/regenerateClientPasswordToPdf`).subscribe(data => {
       saveAs(data, this.form.id + '-password.pdf');
+    });
+  }
+
+  onDeleteForm() {
+    this.formService.deleteForm(this.form.id).subscribe(result => {
+      if (result) {
+        this.router.navigate(['/forms']);
+      }
     });
   }
 }

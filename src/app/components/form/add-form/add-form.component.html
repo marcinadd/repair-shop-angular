@@ -5,38 +5,23 @@
       Select client
     </label>
     <ng-select [items]="clients"
-               bindLabel="name"
+               bindLabel="fullName"
                bindValue="id"
                formControlName="clientId"
                id="ownerId">
-      <ng-template let-item="item" ng-label-tmp>
-        <span>{{ item.firstName + ' ' + item.lastName }}</span>
-      </ng-template>
-      <ng-template let-index="index" let-item="item" let-search="searchTerm" ng-option-tmp>
-        <span>{{ item.firstName + ' ' + item.lastName }}</span>
-      </ng-template>
     </ng-select>
   </div>
-
   <div class="form-group">
     <label for="repairableId">
       Repairable
     </label>
     <ng-select [items]="repairables"
-               bindLabel="name"
+               bindLabel="displayName"
                bindValue="id"
                formControlName="repairableId"
                id="repairableId">
-      <ng-template let-item="item" ng-label-tmp>
-        <span>{{ item.name + ' ' + item.serial }}</span>
-      </ng-template>
-      <ng-template let-index="index" let-item="item" let-search="searchTerm" ng-option-tmp>
-        <span>{{ item.name + ' ' + item.serial }}</span>
-      </ng-template>
     </ng-select>
   </div>
-
-
   <div class="form-group">
     <label for="description">
       Description

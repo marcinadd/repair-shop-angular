@@ -41,4 +41,8 @@ export class FormService {
   getFormInfo(formId: number, password: string): Observable<Form> {
     return this.http.post<Form>(`${this.apiFormUrl}/${formId}/info`, password, environment.httpOptions);
   }
+
+  deleteForm(formId: number): Observable<boolean> {
+    return this.http.delete<boolean>(this.apiFormUrl + '/' + formId, environment.httpOptions);
+  }
 }

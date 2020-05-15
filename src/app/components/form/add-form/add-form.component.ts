@@ -4,6 +4,7 @@ import {ClientService} from '../../../services/client.service';
 import {Client} from '../../../model/Client';
 import {RepairableService} from '../../../services/repairable.service';
 import {FormService} from '../../../services/form.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-form',
@@ -20,7 +21,8 @@ export class AddFormComponent implements OnInit {
   constructor(private formSerivce: FormService,
               private clientService: ClientService,
               private repairableSerivce: RepairableService,
-              private formBuilder: FormBuilder
+              private formBuilder: FormBuilder,
+              private router: Router
   ) {
     this.formCreate = this.formBuilder.group({
       description: '',
@@ -32,22 +34,28 @@ export class AddFormComponent implements OnInit {
   ngOnInit(): void {
     this.clientService.getClients().subscribe(clients => {
       this.clients = clients;
+      this.clients.forEach(client => {
+        client.fullName = client.firstName + ' ' + client.lastName;
+      });
       if (clients.length > 0) {
         this.formCreate.patchValue({clientId: clients[0].id});
-        this.onSelect(clients[0]);
+        this.onUserSelectedLoadRepairables(clients[0]);
       }
     });
   }
 
   onSubmit(formData) {
     this.formSerivce.addForm(formData).subscribe(form => {
-      console.log(form);
+      this.router.navigate(['/forms']);
     });
   }
 
-  onSelect(selectedOwner) {
+  onUserSelectedLoadRepairables(selectedOwner) {
     this.repairableSerivce.getRepairablesByOwnerId(selectedOwner.id).subscribe(repairables => {
       this.repairables = repairables;
+      this.repairables.forEach(repairable => {
+        repairable.displayName = repairable.name + ' ' + repairable.serial;
+      });
       if (repairables.length > 0) {
         this.formCreate.patchValue({repairableId: repairables[0].id});
       } else {

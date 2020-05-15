@@ -6,4 +6,6 @@ export class Repairable {
   serial: string;
   owner: Client;
   ownerId: number;
+
+  displayName: string;
 }
