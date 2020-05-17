@@ -10,6 +10,7 @@
     <th>Phone</th>
     <th>Mail</th>
     <th>Edit</th>
+    <th>Delete</th>
     </thead>
     <tr *ngFor="let client of clients">
       <td>{{client.firstName}}</td>
@@ -22,6 +23,11 @@
             Edit
           </button>
         </a>
+      </td>
+      <td>
+        <button (click)="openDeleteClientDialog(client)" class="btn btn-danger">
+          Delete
+        </button>
       </td>
     </tr>
   </table>

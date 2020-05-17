@@ -37,11 +37,11 @@ import {AddPartComponent} from './components/item/buyable/part/add-part/add-part
 import {PartsComponent} from './components/item/buyable/part/parts/parts.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {ChangeQuantityComponent} from './components/item/buyable/part/change-quantity/change-quantity.component';
-import {DeleteBuyableComponent} from './components/item/buyable/delete-buyable/delete-buyable.component';
-import {ErrorDialogComponent} from './components/error-dialog/error-dialog.component';
+import {ErrorDialogComponent} from './components/dialogs/error-dialog/error-dialog.component';
 import {FormInfoClientComponent} from './components/form/form-info-client/form-info-client.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {FormListComponent} from './components/form/forms/list/form-list/form-list.component';
+import {DeleteDialogComponent} from './components/dialogs/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +67,7 @@ import {FormListComponent} from './components/form/forms/list/form-list/form-lis
     AddPartComponent,
     PartsComponent,
     ChangeQuantityComponent,
-    DeleteBuyableComponent,
+    DeleteDialogComponent,
     ErrorDialogComponent,
     FormInfoClientComponent,
     FormListComponent

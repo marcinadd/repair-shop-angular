@@ -40,4 +40,8 @@ export class ClientService {
     return this.http.patch<Client>(this.apiClientUrl + '/' + client.id, client);
   }
 
+  deleteClient(clientId: number): Observable<boolean> {
+    return this.http.delete<boolean>(this.apiClientUrl + '/' + clientId, environment.httpOptions);
+  }
+
 }

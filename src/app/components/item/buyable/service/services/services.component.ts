@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ServiceService} from '../../../../../services/service.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ChangePriceComponent} from '../../change-price/change-price.component';
-import {DeleteBuyableComponent} from '../../delete-buyable/delete-buyable.component';
 import {Service} from '../../../../../model/Service';
+import {DeleteDialogComponent} from '../../../../dialogs/delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-services',
@@ -35,7 +35,7 @@ export class ServicesComponent implements OnInit {
   }
 
   openDeleteServiceDialog(service: Service): void {
-    const dialogRef = this.dialog.open(DeleteBuyableComponent, {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '250px',
       data: {id: service.id, name: service.name}
     });

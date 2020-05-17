@@ -4,6 +4,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {environment} from '../../../../environments/environment';
 import {FileService} from '../../../services/file.service';
 import {saveAs} from 'file-saver';
+import {DeleteDialogComponent} from '../../dialogs/delete-dialog/delete-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-manage-form',
@@ -18,6 +20,7 @@ export class ManageFormComponent implements OnInit {
     private route: ActivatedRoute,
     private fileService: FileService,
     private router: Router,
+    private dialog: MatDialog
   ) {
   }
 
@@ -39,7 +42,19 @@ export class ManageFormComponent implements OnInit {
     });
   }
 
-  onDeleteForm() {
+  openDeleteFormDialog(): void {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      width: '250px',
+      data: {id: this.form.id, name: 'form'}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.deleteForm();
+      }
+    });
+  }
+
+  deleteForm() {
     this.formService.deleteForm(this.form.id).subscribe(result => {
       if (result) {
         this.router.navigate(['/forms']);

@@ -6,7 +6,7 @@ import {Item} from '../../../model/Item';
 import {ServiceService} from '../../../services/service.service';
 import {PartService} from '../../../services/part.service';
 import {MatDialog} from '@angular/material/dialog';
-import {ErrorDialogComponent} from '../../error-dialog/error-dialog.component';
+import {ErrorDialogComponent} from '../../dialogs/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-add-item',

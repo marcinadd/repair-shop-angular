@@ -4,7 +4,7 @@ import {ChangePriceComponent} from '../../change-price/change-price.component';
 import {MatDialog} from '@angular/material/dialog';
 import {Part} from '../../../../../model/Part';
 import {ChangeQuantityComponent} from '../change-quantity/change-quantity.component';
-import {DeleteBuyableComponent} from '../../delete-buyable/delete-buyable.component';
+import {DeleteDialogComponent} from '../../../../dialogs/delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-parts',
@@ -49,7 +49,7 @@ export class PartsComponent implements OnInit {
   }
 
   deletePartDialog(part: Part): void {
-    const dialogRef = this.dialog.open(DeleteBuyableComponent, {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '250px',
       data: {id: part.id, name: part.name}
     });

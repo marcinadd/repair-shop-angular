@@ -7,13 +7,13 @@ export interface DeleteBuyableDialogData {
 }
 
 @Component({
-  selector: 'app-delete-buyable',
-  templateUrl: './delete-buyable.component.html',
-  styleUrls: ['./delete-buyable.component.css']
+  selector: 'app-delete-dialog',
+  templateUrl: './delete-dialog.component.html',
+  styleUrls: ['./delete-dialog.component.css']
 })
-export class DeleteBuyableComponent {
+export class DeleteDialogComponent {
   constructor(
-    public dialogRef: MatDialogRef<DeleteBuyableComponent>,
+    public dialogRef: MatDialogRef<DeleteDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DeleteBuyableDialogData) {
   }
 
