@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Client} from '../model/Client';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
+import {ClientDetails} from '../model/ClientDetails';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -42,6 +43,10 @@ export class ClientService {
 
   deleteClient(clientId: number): Observable<boolean> {
     return this.http.delete<boolean>(this.apiClientUrl + '/' + clientId, environment.httpOptions);
+  }
+
+  getClientDetails(clientId: number): Observable<ClientDetails> {
+    return this.http.get<ClientDetails>(this.apiClientUrl + '/' + clientId + '/details');
   }
 
 }

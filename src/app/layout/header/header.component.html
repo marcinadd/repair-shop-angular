@@ -14,7 +14,17 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/forms/add">Create form</a>
           </li>
-
+          <li class="nav-item dropdown">
+            <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
+               href="#"
+               id="clientDropdown" role="button">
+              Clients
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" routerLink="/clients/add">Create client</a>
+              <a class="dropdown-item" routerLink="/clients">Clients</a>
+            </div>
+          </li>
           <li class="nav-item dropdown">
             <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
                href="#"
@@ -25,7 +35,6 @@
               <a class="dropdown-item" routerLink="/repairables/add">Create repairable</a>
             </div>
           </li>
-
           <li class="nav-item dropdown">
             <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown"
                href="#"
@@ -47,9 +56,6 @@
               <a class="dropdown-item" routerLink="/parts/add">Create part</a>
               <a class="dropdown-item" routerLink="/parts">Parts</a>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" routerLink="/clients">Clients</a>
           </li>
         </ng-container>
         <ng-template #login>

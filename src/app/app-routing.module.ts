@@ -15,6 +15,7 @@ import {ServicesComponent} from './components/item/buyable/service/services/serv
 import {AddPartComponent} from './components/item/buyable/part/add-part/add-part.component';
 import {PartsComponent} from './components/item/buyable/part/parts/parts.component';
 import {FormInfoClientComponent} from './components/form/form-info-client/form-info-client.component';
+import {DetailsClientComponent} from './components/client/details-client/details-client.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
       {path: '', component: IndexComponent},
       {path: 'clients', component: ClientsComponent, canActivate: [AuthGuard]},
       {path: 'clients/add', component: AddClientComponent},
+      {path: 'clients/:id/details', component: DetailsClientComponent},
       {path: 'clients/:id', component: EditClientComponent},
       {path: 'repairables/add', component: AddRepairableComponent},
       {path: 'forms/add', component: AddFormComponent},

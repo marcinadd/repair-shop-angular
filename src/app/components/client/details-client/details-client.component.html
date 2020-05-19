@@ -1,0 +1,67 @@
+<div class="container">
+  <h2>Client data</h2>
+  <table class="table table-bordered">
+    <tbody>
+    <tr>
+      <th scope="row">Client</th>
+      <td>{{clientDetails.client.id}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Client</th>
+      <td>{{clientDetails.client.firstName}} {{clientDetails.client.lastName}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Client phone</th>
+      <td>{{clientDetails.client.phone}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Client email</th>
+      <td>{{clientDetails.client.email}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <h2>Repairables</h2>
+  <table class="table table-bordered">
+    <tr>
+      <th scope="col">
+        Repirable
+      </th>
+      <th scope="col">
+        Serial
+      </th>
+    </tr>
+    <tbody>
+    <tr *ngFor="let repairable of clientDetails.client.repairables">
+      <td>{{repairable.name}}</td>
+      <td>{{repairable.serial}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <h2>Forms</h2>
+  <table class="table table-bordered">
+    <tr>
+      <th scope="col">
+        Repairable Name
+      </th>
+      <th scope="col">
+        Serial
+      </th>
+      <th scope="col">
+        Description
+      </th>
+      <th scope="col">
+        Manage
+      </th>
+    </tr>
+    <tbody>
+    <tr *ngFor="let form of clientDetails.forms">
+      <td>{{form.repairable.name}}</td>
+      <td>{{form.repairable.serial}}</td>
+      <td>{{(form.description.length > 6) ? (form.description | slice:0:30) + '...' : (form.description)}}</td>
+      <td class="col">
+        <button [routerLink]="['/forms',form.id]" class="btn btn-warning">Manage</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

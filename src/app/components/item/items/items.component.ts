@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, IterableDiffers, OnInit} from '@angular/core';
 import {Item} from '../../../model/Item';
 import {ItemService} from '../../../services/item.service';
 
@@ -10,12 +10,26 @@ import {ItemService} from '../../../services/item.service';
 export class ItemsComponent implements OnInit {
   @Input() items: Item[];
   @Input() formId: number;
+  totalPrice: number;
 
-  constructor(private itemService: ItemService) {
+  iterableDiffer: any;
+
+  constructor(
+    private itemService: ItemService,
+    private iterableDiffers: IterableDiffers
+  ) {
+    this.iterableDiffer = iterableDiffers.find([]).create(null);
   }
 
   ngOnInit(): void {
 
+  }
+
+  ngDoCheck() {
+    const changes = this.iterableDiffer.diff(this.items);
+    if (changes) {
+      this.countTotalPrice();
+    }
   }
 
   addItem(item: Item) {
@@ -29,4 +43,13 @@ export class ItemsComponent implements OnInit {
       }
     });
   }
+
+  countTotalPrice() {
+    let sum = 0;
+    this.items.forEach(item => {
+      sum += item.itemPrice * item.quantity;
+    });
+    this.totalPrice = sum;
+  }
+
 }

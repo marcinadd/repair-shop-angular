@@ -9,6 +9,7 @@
     <th>Last name</th>
     <th>Phone</th>
     <th>Mail</th>
+    <th>Details</th>
     <th>Edit</th>
     <th>Delete</th>
     </thead>
@@ -18,8 +19,15 @@
       <td>{{client.phone}}</td>
       <td>{{client.email}}</td>
       <td>
-        <a [routerLink]="['/clients',client.id]">
+        <a [routerLink]="['/clients/',client.id,'details']">
           <button class="btn btn-info">
+            Details
+          </button>
+        </a>
+      </td>
+      <td>
+        <a [routerLink]="['/clients',client.id]">
+          <button class="btn btn-warning">
             Edit
           </button>
         </a>

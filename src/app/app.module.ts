@@ -42,6 +42,7 @@ import {FormInfoClientComponent} from './components/form/form-info-client/form-i
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {FormListComponent} from './components/form/forms/list/form-list/form-list.component';
 import {DeleteDialogComponent} from './components/dialogs/delete-dialog/delete-dialog.component';
+import {DetailsClientComponent} from './components/client/details-client/details-client.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import {DeleteDialogComponent} from './components/dialogs/delete-dialog/delete-d
     DeleteDialogComponent,
     ErrorDialogComponent,
     FormInfoClientComponent,
-    FormListComponent
+    FormListComponent,
+    DetailsClientComponent
   ],
   imports: [
     BrowserModule,
