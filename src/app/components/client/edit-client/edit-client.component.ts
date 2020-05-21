@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ClientService} from '../../../services/client.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder} from '@angular/forms';
 
 @Component({
@@ -15,7 +15,8 @@ export class EditClientComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private clientService: ClientService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
   }
 
@@ -30,6 +31,8 @@ export class EditClientComponent implements OnInit {
     this.clientService.findClientById(this.route.snapshot.paramMap.get('id')).subscribe(client => {
       this.client = client;
       this.clientEditForm.patchValue({id: client.id});
+    }, () => {
+      this.router.navigate(['/clients']);
     });
   }
 

@@ -27,6 +27,8 @@ export class ManageFormComponent implements OnInit {
   ngOnInit(): void {
     this.formService.getFormById(this.route.snapshot.paramMap.get('id')).subscribe(form => {
       this.form = form;
+    }, () => {
+      this.router.navigate(['/forms']);
     });
   }
 

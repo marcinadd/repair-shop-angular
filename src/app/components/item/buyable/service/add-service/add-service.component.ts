@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ServiceService} from '../../../../../services/service.service';
 import {FormBuilder} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-service',
@@ -12,7 +13,8 @@ export class AddServiceComponent implements OnInit {
 
   constructor(
     private serviceService: ServiceService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.serviceCreateForm = this.formBuilder.group({
       name: '',
@@ -25,8 +27,8 @@ export class AddServiceComponent implements OnInit {
   }
 
   onSubmit(service) {
-    this.serviceService.addService(service).subscribe(service => {
-      console.log(service);
+    this.serviceService.addService(service).subscribe(() => {
+      this.router.navigate(['/services']);
     });
   }
 

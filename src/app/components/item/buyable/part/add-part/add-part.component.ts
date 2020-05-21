@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PartService} from '../../../../../services/part.service';
 import {FormBuilder} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-part',
@@ -12,7 +13,8 @@ export class AddPartComponent implements OnInit {
 
   constructor(
     private partService: PartService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.partCreateForm = this.formBuilder.group({
       name: '',
@@ -35,8 +37,8 @@ export class AddPartComponent implements OnInit {
   }
 
   onSubmit(part) {
-    this.partService.addPart(part).subscribe(part => {
-      console.log(part);
+    this.partService.addPart(part).subscribe(() => {
+      this.router.navigate(['/parts']);
     });
   }
 

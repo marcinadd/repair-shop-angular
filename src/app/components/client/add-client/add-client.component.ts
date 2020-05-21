@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {ClientService} from '../../../services/client.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-client',
@@ -10,7 +11,11 @@ import {ClientService} from '../../../services/client.service';
 export class AddClientComponent implements OnInit {
   clientCreateForm;
 
-  constructor(private clientService: ClientService, private formBuilder: FormBuilder) {
+  constructor(
+    private clientService: ClientService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -23,7 +28,8 @@ export class AddClientComponent implements OnInit {
   }
 
   onSubmit(clientData) {
-    this.clientService.addClient(clientData).subscribe(client => {
+    this.clientService.addClient(clientData).subscribe(() => {
+      this.router.navigate(['/clients']);
     });
   }
 }

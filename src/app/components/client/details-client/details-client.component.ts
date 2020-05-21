@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ClientService} from '../../../services/client.service';
 import {ClientDetails} from '../../../model/ClientDetails';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-details-client',
@@ -11,14 +11,18 @@ import {ActivatedRoute} from '@angular/router';
 export class DetailsClientComponent implements OnInit {
   clientDetails: ClientDetails;
 
-  constructor(private clientService: ClientService, private route: ActivatedRoute) {
+  constructor(
+    private clientService: ClientService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {
     this.clientService.getClientDetails(Number(this.route.snapshot.paramMap.get('id'))).subscribe(clientDetails => {
-      console.log(clientDetails);
       this.clientDetails = clientDetails;
+    }, () => {
+      this.router.navigate(['/clients']);
     });
   }
-
 }
